@@ -12,6 +12,15 @@
   <title>The Weather</title>
 </head>
 <body>
+  <form id = "form" method="" action="">
+    <label id = "formCityLabel" for="city">City</label>
+    <input id = "formCity" type="text" name = "city" required>
+    <button id = "submitBtn" type="button" >Search!</button>
+
+  </form>
+
+
+  
   <div id = "weatherContainer">
     <div id = "grid1">
       <div id = "currentDate">Wednesday, Jan 7</div>
@@ -57,8 +66,8 @@
 
 
   <img src="#">
-  <button id = "refreshButton">Refresh Image</button>
-  <script src="test.js"></script>
+  <button type = "button" id = "refreshButton">Refresh Image</button>
+  <script src="apiScripts.js"></script>
 </body>
 </html>
 

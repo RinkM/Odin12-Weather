@@ -1,6 +1,6 @@
 
-
-
+const submitBtn = document.getElementById("submitBtn")
+const formCity = document.getElementById("formCity")
 const container = document.getElementById("weatherContainer")
 const grid1 = document.getElementById("grid1")
 const currentDate = document.getElementById("currentDate")
@@ -15,11 +15,22 @@ const grid5 = document.getElementById("grid5")
 const hourlyExpand = document.getElementById("hourlyExpand")
 const dayExpand = document.getElementById("dayExpand")
 
+
+
+
+
+
+submitBtn.addEventListener("click", function cityInput(){
+  console.log(formCity.value)
+  let cityAPI = `https://api.openweathermap.org/data/2.5/weather?q=${formCity.value}&APPID=cb0a780723ffc0649a66d5bbfcdbeebb&units=imperial`
+})
+
 hourlyExpand.addEventListener("click", function expandHourlyForcast(){
+  
 
 })
 dayExpand.addEventListener("click", function expandDailyForcast(){
-  
+
 })
 
 let londonAPI = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cb0a780723ffc0649a66d5bbfcdbeebb&units=imperial"
@@ -35,13 +46,13 @@ let giphy;
 
 function imageRefresh(){
 fetch(giphyAPI, {mode: "cors"})
-  .then(function(response){
-    console.log("first", response)
-    return response.json()
+  .then(function(response2){
+    console.log("first", response2)
+    return response2.json()
   })
-  .then(function(response){
-    console.log(response);
-    img.src = response.data.images.original.url
+  .then(function(response2){
+    console.log(response2);
+    img.src = response2.data.images.original.url
   })}
 
 imageRefresh()
@@ -54,15 +65,12 @@ imageRefresh()
 
 
 
-fetch(denverAPI, {
-  mode: "cors"
-  }
-  )
-  .then((theWeather)=>{
-  console.log("Weather", theWeather),
-  theWeather.json()
+fetch(denverAPI, {mode: "cors"})
+  .then((response)=>{
+  console.log("Weather", response),
+  response.json()
 })
-  .then((theWeather)=> console.log("theweathertheWeather", theWeather))
+  .then((response)=> console.log("final response weather", response))
 
 
 
