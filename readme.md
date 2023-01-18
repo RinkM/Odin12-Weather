@@ -1,3 +1,6 @@
+Photo by Brett Sayles: https://www.pexels.com/photo/white-clouds-and-blue-sky-4504739/
+
+
 // "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={f51057ef9381bb2453462ec951945aeb}"
 // "https://api.openweathermap.org/data/2.5/weather?lat={39n}&lon={}&appid={f51057ef9381bb2453462ec951945aeb}"
 // keep me a secret....

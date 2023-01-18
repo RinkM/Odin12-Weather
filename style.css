@@ -1,28 +1,47 @@
-div{
-  border: 1pt solid red;
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url("icons/backgroundClouds.jpg");
 }
 
+div{
+  /* border: 1pt solid red; */
+}
+
+#form{
+  width: 300px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  column-gap: 5px;
+}
 
 #weatherContainer{
-  background-color: #36454F;
+  background-color: white;
+  margin: 3em auto 2em;
+  border: 2px black solid;
+  border-radius: 8px;
   display: grid;
   font-size: .8em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1;
 
-  grid-template-columns: 1.2fr .9fr .2fr;
-  grid-template-rows: 1.3fr .7fr .2fr;
-  grid-column-gap: 0px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 5px;
   grid-row-gap: 0px;
 
   
   width: 300px;
   height: 300px;
-  color:ghostwhite
+  color:#a1520f
 
 }
 #grid1{
-  grid-area: 1 / 1 / 2 / 2;
+  grid-area: 1 / 1 / 2 / 3;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
 }
 #location{
@@ -30,6 +49,7 @@ div{
 }
 #currentTemp{
   font-size: 5em;
+  line-height: 1em;
 
 }
 #hiLo{
@@ -38,16 +58,26 @@ div{
 
 
 #grid2{
-  grid-area: 1 / 2 / 2 / 3;
+  grid-area: 2 / 2 / 3 / 2;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
 
 }
 #currentDate{
 
 }
 #weatherIcon{
+  width: auto;
+  height: 128px;
+  align-self: center;
+  max-height: 125px;
+  border-radius: 8px;
 
 }
 #weatherDescription{
+  text-align: center;
 
 }
 #grid4{
