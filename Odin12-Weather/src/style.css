@@ -1,6 +1,9 @@
 body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-image: url("/src/assets/icons/backgroundClouds.jpg");
+  display: flex;
+  flex-direction: column
+  ;
 }
 
 div{
@@ -13,6 +16,13 @@ div{
   display: flex;
   justify-content: center;
   column-gap: 5px;
+}
+
+#formErrorMsg{
+  min-width : 143px;
+  margin: auto;
+  color:black;
+
 }
 
 #weatherContainer{

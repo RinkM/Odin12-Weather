@@ -1,80 +1,91 @@
 
-const submitBtn = document.getElementById("submitBtn")
-const formCity = document.getElementById("formCity")
-const container = document.getElementById("weatherContainer")
-const grid1 = document.getElementById("grid1")
-const currentDate = document.getElementById("currentDate")
-const currentTemp = document.getElementById("currentTemp")
-const hiLo = document.getElementById("hiLo")
-const grid2 = document.getElementById("grid2")
-const city = document.getElementById("city")
-const weatherIcon = document.getElementById("weatherIcon")
-const weatherDescription = document.getElementById("weatherDescription")
-const grid3 = document.getElementById("grid3")
-const grid4 = document.getElementById("grid4")
-const hourlyExpand = document.getElementById("hourlyExpand")
-const dayExpand = document.getElementById("dayExpand")
 
 
+function updateGrid1 (data){
+  console.log("data", data.main.temp)
+  const currentDate = document.getElementById("currentDate")
+  const date = new Date(data.dt*1000)
+  currentDate.textContent = date.toDateString()
 
+  const currentTemp = document.getElementById("currentTemp")
+  const hiLo = document.getElementById("hiLo")
+  hiLo.textContent = `${Math.round(data.main.temp_max)}F / ${Math.round(data.main.temp_min)}F`
 
+  currentTemp.textContent = `${Math.round(data.main.temp)}F`;
+}
 
-
-submitBtn.addEventListener("click", function cityInput(){
-  console.log(formCity.value)
-  let cityAPI = `https://api.openweathermap.org/data/2.5/weather?q=${formCity.value}&APPID=cb0a780723ffc0649a66d5bbfcdbeebb&units=imperial`
-})
-
-hourlyExpand.addEventListener("click", function expandHourlyForcast(){
+function updateGrid2 (data){
+  const grid2 = document.getElementById("grid2");
   
+  const city = document.getElementById("city");
+  const locations = cityNameInformation(data)
+  city.textContent = locations;
 
-})
-dayExpand.addEventListener("click", function expandDailyForcast(){
+  const weatherIcon = document.getElementById("weatherIcon");
+  console.log(data)
+  weatherIcon.src = getWeatherIcon(data);
 
-})
-
-let londonAPI = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cb0a780723ffc0649a66d5bbfcdbeebb&units=imperial"
-
-let denverAPI = "https://api.openweathermap.org/data/2.5/weather?q=Denver&APPID=cb0a780723ffc0649a66d5bbfcdbeebb&units=imperial"
-
-let searchTerm = "dog"
-
-let giphyAPI = `https://api.giphy.com/v1/gifs/translate?api_key=PKBlpNSDvOf0DDCyTKmkkVjXhnzlDoHy&s=${searchTerm}`
-
-const img = document.querySelector("img")
-let giphy;
-
-function imageRefresh(){
-fetch(giphyAPI, {mode: "cors"})
-  .then(function(response2){
-    console.log("first", response2)
-    return response2.json()
-  })
-  .then(function(response2){
-    console.log(response2);
-    img.src = response2.data.images.original.url
-  })}
-
-imageRefresh()
-  const button = document.getElementById('refreshButton')
-  button.addEventListener("click", imageRefresh)
-
-// const london = await fetch(londonAPI)
-// const data = await london.json()
+  const weatherDescription = document.getElementById("weatherDescription");
+  let description = data.weather[0].description
+  weatherDescription.textContent = capitalize(description)
+  
+}
 
 
+function updateGrid3 (data){
+}
 
 
-fetch(denverAPI, {mode: "cors"})
-  .then((response)=>{
-  console.log("Weather", response),
-  response.json()
-})
-  .then((response)=> console.log("final response weather", response))
+function updateWeather(data){
+  updateGrid1(data)
+  updateGrid2(data)
+  updateGrid3(data)
+}
+
+function getWeatherIcon(data) {
+  if (data.wind.speed > 20){
+    return "/src/assets/icons/windyDay.png"
+  } else if (data.weather[0].main == "Clouds"){
+      if (data.weather[0].id == 804){
+      return "/src/assets/icons/smiles/cloudy.png"
+    } else {
+      return "/src/assets/icons/smiles/partlycloudy.png"
+    }
+  } else if (data.weather[0].main == "Snow"){
+    return "/src/assets/icons/smiles/snowman.png"
+  } else if (data.weather[0].main == "Rain"){
+    return "/src/assets/icons/smiles/umbrellaRain.png"
+  } else if (data.weather[0].main == "Drizzle"){
+    return "/src/assets/icons/smiles/umbrellaRainClosed.png"
+  } else if (data.weather[0].main == "Thunderstorm"){
+    return "/src/assets/icons/smiles/stormy.png"
+  } else if (data.weather[0].main == "Clear"){
+    return "/src/assets/icons/smiles/sunnyDay.png"
+  }
+}
 
 
 
+function capitalize(string){
+  let newString = "";
+  const array = string.split(" ");
+  array.forEach((word)=>{
+    let upperWord = word.at(0).toUpperCase()+word.slice(1);
+    newString = newString + upperWord + " "})
+
+  return newString.trim()
+}
 
 
+function cityNameInformation(data){
+  let location;
+  if (data.stateName){
+    location = `${data.cityName}, ${data.stateName},  ${data.sys.country}`
+  } else {
+    location = `${data.cityName}, ${data.stateName},  ${data.sys.country}`
+  }
+  return location
+}
 
+export default updateWeather
 
