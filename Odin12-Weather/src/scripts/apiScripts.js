@@ -1,4 +1,6 @@
 
+
+
 let formValue = "New York"
 const practiceUrl = "https://api.openweathermap.org/data/2.5/weather?lat=50.5&lon=-0.127&APPID=cb0a780723ffc0649a66d5bbfcdbeebb&units=imperial"
 
@@ -199,26 +201,25 @@ function updateWeather(data){
   updateGrid3(data)
 }
 
-
 function getWeatherIcon(data) {
   if (data.wind.speed > 20){
-    return "icons/windyDay.png"
+    return "/src/assets/icons/windyDay.png"
   } else if (data.weather[0].main == "Clouds"){
       if (data.weather[0].id == 804){
-      return "icons/smiles/cloudy.png"
+      return "/src/assets/icons/smiles/cloudy.png"
     } else {
-      return "icons/smiles/partlycloudy.png"
+      return "/src/assets/icons/smiles/partlycloudy.png"
     }
   } else if (data.weather[0].main == "Snow"){
-    return "icons/smiles/snowman.png"
+    return "/src/assets/icons/smiles/snowman.png"
   } else if (data.weather[0].main == "Rain"){
-    return "icons/smiles/umbrellaRain.png"
+    return "/src/assets/icons/smiles/umbrellaRain.png"
   } else if (data.weather[0].main == "Drizzle"){
-    return "icons/smiles/umbrellaRainClosed.png"
+    return "/src/assets/icons/smiles/umbrellaRainClosed.png"
   } else if (data.weather[0].main == "Thunderstorm"){
-    return "icons/smiles/stormy.png"
+    return "/src/assets/icons/smiles/stormy.png"
   } else if (data.weather[0].main == "Clear"){
-    return "icons/smiles/sunnyDay.png"
+    return "/src/assets/icons/smiles/sunnyDay.png"
   }
 }
 
