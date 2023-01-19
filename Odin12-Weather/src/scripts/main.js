@@ -10,17 +10,33 @@ import updateWeather from "./domScripts"
 
 const submitBtn = document.getElementById("submitBtn")
 const cityInput = document.getElementById("cityInput")
+
 cityInput.value = "Tokyo"
 
+search()
 
 async function search(){
-  const weatherData = await getWeatherData()
+  const weatherData = await getWeatherData(unitBtn.value)
   if (weatherData){
     console.log(weatherData)
-    updateWeather(weatherData)
+    updateWeather(weatherData, unitBtn.value)
   }
 }
-search()
+
 
 submitBtn.addEventListener("click", () => search());
   
+unitBtn.addEventListener("click", () => {
+  unitsToggle();})
+
+function unitsToggle(){
+  const unitBtn = document.getElementById("unitBtn")
+  if (unitBtn.value == "Imperial"){
+    unitBtn.textContent = "Metric";
+    unitBtn.value = "Metric";
+  } else {
+    unitBtn.textContent = "Imperial";
+    unitBtn.value = "Imperial";
+  }
+}
+

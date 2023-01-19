@@ -1,15 +1,18 @@
 
 // runs on successful button press. Runs 4 functions with 2 API calls.  then slightly cleans / adds to the weather data and returns the object. 
-async function getWeatherData(){
+async function getWeatherData(units){
   const urlCity = urlBuilderCityName(cityInput.value)
   const cityLocation = await getCoordinates(urlCity)
-  const urlCoordinates = urlBuilderCoords(cityLocation, "imperial")
+  const urlCoordinates = urlBuilderCoords(cityLocation, units)
   const weatherData = await grabWeather(urlCoordinates);
+  const urlForecast = urlBuilderForecast(cityLocation, units)
+  const forecastData = await grabWeather(urlForecast);
+
   let fullWeatherData = {
     ...cityLocation,
     ...weatherData
   }
-  console.log(fullWeatherData)
+  console.log(forecastData.list)
   return fullWeatherData
 }
 
@@ -23,6 +26,14 @@ function urlBuilderCoords (coords, units){
     const keyAPI = "cb0a780723ffc0649a66d5bbfcdbeebb"
     const openWeatherLimit = 5
   return `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&APPID=${keyAPI}&units=${units}`;
+  }
+}
+
+function urlBuilderForecast (coords, units){
+  if(coords){
+    const keyAPI = "cb0a780723ffc0649a66d5bbfcdbeebb"
+    const openWeatherLimit = 5
+  return `https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}&APPID=${keyAPI}&units=${units}`;
   }
 }
 

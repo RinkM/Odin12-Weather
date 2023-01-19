@@ -1,17 +1,21 @@
 
+function unitLetter(units){
+  if (units =="Metric"){
+    return "C"
+  } else 
+  return "F"
+}
 
-
-function updateGrid1 (data){
-  console.log("data", data.main.temp)
+function updateGrid1 (data, units){
   const currentDate = document.getElementById("currentDate")
   const date = new Date(data.dt*1000)
   currentDate.textContent = date.toDateString()
 
   const currentTemp = document.getElementById("currentTemp")
   const hiLo = document.getElementById("hiLo")
-  hiLo.textContent = `${Math.round(data.main.temp_max)}F / ${Math.round(data.main.temp_min)}F`
+  hiLo.textContent = `${Math.round(data.main.temp_max)+ unitLetter(units)} / ${Math.round(data.main.temp_min)+ unitLetter(units)}`
 
-  currentTemp.textContent = `${Math.round(data.main.temp)}F`;
+  currentTemp.textContent = `${Math.round(data.main.temp)+ unitLetter(units)}`;
 }
 
 function updateGrid2 (data){
@@ -22,7 +26,6 @@ function updateGrid2 (data){
   city.textContent = locations;
 
   const weatherIcon = document.getElementById("weatherIcon");
-  console.log(data)
   weatherIcon.src = getWeatherIcon(data);
 
   const weatherDescription = document.getElementById("weatherDescription");
@@ -36,9 +39,9 @@ function updateGrid3 (data){
 }
 
 
-function updateWeather(data){
-  updateGrid1(data)
-  updateGrid2(data)
+function updateWeather(data, units){
+  updateGrid1(data, units)
+  updateGrid2(data, units)
   updateGrid3(data)
 }
 
