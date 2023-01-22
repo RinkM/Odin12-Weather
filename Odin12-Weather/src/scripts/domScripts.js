@@ -117,6 +117,7 @@ function updateGrid3 (data){
 function updateWeather(data, units){
   updateGrid1(data, units)
   updateGrid2(data, units)
+  windowBlurRemove()
   updateGrid3(data)
 }
 
@@ -179,8 +180,10 @@ function cityNameInformation(data){
 
 
 
-
-
+function windowBlurRemove (){
+  const image = document.getElementById("outsideWindow")
+  image.classList.remove("blur")
+}
 
 
 

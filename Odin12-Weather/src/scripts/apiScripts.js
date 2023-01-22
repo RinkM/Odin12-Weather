@@ -1,6 +1,7 @@
 
 // runs on successful button press. Runs 4 functions with 2 API calls.  then slightly cleans / adds to the weather data and returns the object. 
 async function getWeatherData(units){
+  windowBlurOn()
   const urlCity = urlBuilderCityName(cityInput.value)
   const cityLocation = await getCoordinates(urlCity)
   const urlCoordinates = urlBuilderCoords(cityLocation, units)
@@ -18,6 +19,12 @@ console.log(forecastData)
   })
 
   return fullWeatherData
+}
+
+
+function windowBlurOn (){
+  const image = document.getElementById("outsideWindow")
+  image.classList.add("blur")
 }
 
 function urlBuilderCityName (cityName){
