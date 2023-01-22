@@ -12,7 +12,11 @@ async function getWeatherData(units){
     ...cityLocation,
     ...weatherData
   }
-  console.log(forecastData.list)
+console.log(forecastData)  
+  forecastData.list.map((element) =>{
+    
+  })
+
   return fullWeatherData
 }
 

@@ -11,23 +11,44 @@
   <title>The Weather</title>
 </head>
 <body>
+
+<div id = "windowContainer">
   <div id = "weatherContainer">
     <div id = "grid1">
       <div id = "currentDate"></div>
       <div id = "city"></div>
-      <div id = "currentTemp"></div>
+      <div id = "currentTemp" class = "neonText"></div>
       <div id = "hiLo"></div>
     </div>
     <div id = "grid2">
       
       <div id = "weatherDescription"></div>
-      <img id = "weatherIcon"></img>
-      
+      <img class = "neonBox" id = "weatherIcon"></img>
 
     </div>
     <img src=# alt="">
   </div>
+  <div id = "windowForm">
+    <div id = "form" method="" action="">
+      
+      <input id = "cityInput" type="text" name = "city" required>
+      <div id = buttonContainer>
+        <button class = "formButton" id = "submitBtn" type="button" >Search for a City!</button>
+        <button class = "formButton" id = "unitBtn" type="checkbox" data-toggle="toggle" value = "Imperial">Change Units</button>
+      </div>
+    </div>
+    <div id = "formErrorMsg"></div>
+</div>
+  <div id = "windowFrameDiv">
+    <img id = "windowFrameImg" src="/src/assets/transparentWindowCrop.png" alt="A trasnparent WindowFrame">
+    <img id = "outsideWindow" class = "blur" src="#" alt="#">
+  </div>
+</div>
 
+
+  
+
+<!-- 
   <div id = "form" method="" action="">
     <label id = "formCityLabel" for="city">City:</label>
     <input id = "cityInput" type="text" name = "city" required>
@@ -37,7 +58,7 @@
     
 
   </div>
-  <div id = "formErrorMsg"></div>
+  <div id = "formErrorMsg"></div> -->
 
   <script type = "module" src="\src\scripts\main.js"></script>
 </body>

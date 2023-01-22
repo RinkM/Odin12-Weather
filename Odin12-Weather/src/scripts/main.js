@@ -11,7 +11,7 @@ import updateWeather from "./domScripts"
 const submitBtn = document.getElementById("submitBtn")
 const cityInput = document.getElementById("cityInput")
 
-cityInput.value = "Tokyo"
+cityInput.value = "Denver"
 
 search()
 

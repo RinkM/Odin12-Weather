@@ -1,4 +1,74 @@
 
+const weatherImages = [
+  {
+    source:"/src/assets/Photos/clearSky.jpg",
+    weatherType:"Clear",
+  },
+  {
+    source:"/src/assets/Photos/Fog Monster.jpg",
+    weatherType:"Fog",
+  },
+  {
+    source:"/src/assets/Photos/Foggy Lake.jpg",
+    weatherType:"",
+  },
+  {
+    source:"/src/assets/Photos/foggyForestpath.jpg",
+    weatherType:"Drizzle",
+  },
+  {
+    source:"/src/assets/Photos/hazeyFog.jpg",
+    weatherType:"",
+  },
+  {
+    source:"/src/assets/Photos/kiteFly.jpg",
+    weatherType:"",
+  },
+  {
+    source:"/src/assets/Photos/lighteningStorm.jpg",
+    weatherType:"Thunderstorm",
+  },
+  {
+    source:"/src/assets/Photos/OvercastMtns.jpg",
+    weatherType:"",
+  },
+  {
+    source:"/src/assets/Photos/overcastMtns2.jpg",
+    weatherType:"",
+  },
+  {
+    source:"/src/assets/Photos/partlyCloudy.jpg",
+    weatherType:"Clouds",
+  },
+  {
+    source:"/src/assets/Photos/sandstorm.jpg",
+    weatherType:"Sand",
+  },
+  {
+    source:"/src/assets/Photos/smokeFireman.jpg",
+    weatherType:"Smoke",
+  },
+  {
+    source:"/src/assets/Photos/SnowyCabin.jpg",
+    weatherType:"Snow",
+  },
+  {
+    source:"/src/assets/Photos/windyTree.jpg",
+    weatherType:"Wind",
+  },
+  {
+    source:"/src/assets/Photos/rainyCity.jpg",
+    weatherType:"Rain",
+  },
+]
+
+
+
+
+
+
+
+
 function unitLetter(units){
   if (units =="Metric"){
     return "C"
@@ -24,6 +94,11 @@ function updateGrid2 (data){
   const city = document.getElementById("city");
   const locations = cityNameInformation(data)
   city.textContent = locations;
+  
+  const outsideWindow = document.getElementById("outsideWindow");
+  outsideWindow.src = getWindowPictureUrl(data);
+  getWindowPictureUrl(data)
+
 
   const weatherIcon = document.getElementById("weatherIcon");
   weatherIcon.src = getWeatherIcon(data);
@@ -44,6 +119,16 @@ function updateWeather(data, units){
   updateGrid2(data, units)
   updateGrid3(data)
 }
+
+
+function getWindowPictureUrl(data){
+  const weatherPic = weatherImages.find(element => element.weatherType == data.weather[0].main)
+  console.log("weatherPicture ", weatherPic)
+  console.log("weatherPicture ", data.weather[0].main)
+  return weatherPic.source
+}
+
+
 
 function getWeatherIcon(data) {
   if (data.wind.speed > 20){
@@ -89,6 +174,20 @@ function cityNameInformation(data){
   }
   return location
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default updateWeather
 
