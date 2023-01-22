@@ -23,8 +23,10 @@ console.log(forecastData)
 
 
 function windowBlurOn (){
+  const grid = document.getElementById("grid1")
   const image = document.getElementById("outsideWindow")
   image.classList.add("blur")
+  grid.classList.add("blur")
 }
 
 function urlBuilderCityName (cityName){

@@ -34,6 +34,8 @@ div{
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    width: 350px;
+    margin: auto;
   }
   
   .formButton:focus {
@@ -88,6 +90,7 @@ div{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: filter 1s ease-in;
 
 }
 #location{
@@ -187,18 +190,19 @@ div{
   border: 5px #f00bdd solid;
   height: 750px;
   position: absolute;
-  min-width: 600px;
+  width: 725px;
   top: 10%
 }
 
 #outsideWindow{
   position: relative;
   z-index: -1;
-  top: 215px;
-  left: 0px;
-  min-width:400px;
-  max-height: 420px;
-  transition: all 1s ease-in;
+  /* left: 30%; */
+  top: 23%;
+  height: 440px;
+  width: auto;
+  transition: filter 1.5s ease-in;
+  max-width: 720px;
 
 }
 
@@ -267,10 +271,11 @@ div{
 }
 
 .blur{
-  transition: all 3sec;
-  filter: blur(8px);
-}
+  transition: filter 1sec;
+  filter: blur(8px) hue-rotate(90deg);
+  }
 .noBlur{
-  transition: all 3sec;
-  filter: blur(0px)
+  transition: filter 1s;
+  filter: blur(0px) hue-rotate(0deg);
+  
 }

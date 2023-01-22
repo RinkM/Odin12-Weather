@@ -10,7 +10,7 @@ const weatherImages = [
   },
   {
     source:"/src/assets/Photos/Foggy Lake.jpg",
-    weatherType:"",
+    weatherType:"Mist",
   },
   {
     source:"/src/assets/Photos/foggyForestpath.jpg",
@@ -25,7 +25,7 @@ const weatherImages = [
     weatherType:"",
   },
   {
-    source:"/src/assets/Photos/lighteningStorm.jpg",
+    source:"/src/assets/Photos/lighteningField.jpg",
     weatherType:"Thunderstorm",
   },
   {
@@ -33,11 +33,11 @@ const weatherImages = [
     weatherType:"",
   },
   {
-    source:"/src/assets/Photos/overcastMtns2.jpg",
+    source:"/src/assets/Photos/overcastMtns2Small.png",
     weatherType:"",
   },
   {
-    source:"/src/assets/Photos/partlyCloudy.jpg",
+    source:"/src/assets/Photos/partlyCloudySmall.png",
     weatherType:"Clouds",
   },
   {
@@ -45,11 +45,7 @@ const weatherImages = [
     weatherType:"Sand",
   },
   {
-    source:"/src/assets/Photos/smokeFireman.jpg",
-    weatherType:"Smoke",
-  },
-  {
-    source:"/src/assets/Photos/SnowyCabin.jpg",
+    source:"/src/assets/Photos/snowLandscape.jpg",
     weatherType:"Snow",
   },
   {
@@ -57,9 +53,14 @@ const weatherImages = [
     weatherType:"Wind",
   },
   {
-    source:"/src/assets/Photos/rainyCity.jpg",
+    source:"/src/assets/Photos/cityRain.jpg",
     weatherType:"Rain",
   },
+  {
+    source:"/src/assets/Photos/smokeyCity.jpg",
+    weatherType:"Smoke",
+  },
+
 ]
 
 
@@ -95,9 +96,7 @@ function updateGrid2 (data){
   const locations = cityNameInformation(data)
   city.textContent = locations;
   
-  const outsideWindow = document.getElementById("outsideWindow");
-  outsideWindow.src = getWindowPictureUrl(data);
-  getWindowPictureUrl(data)
+
 
 
   const weatherIcon = document.getElementById("weatherIcon");
@@ -110,15 +109,18 @@ function updateGrid2 (data){
 }
 
 
-function updateGrid3 (data){
+function updateWindow (data){
+  const outsideWindow = document.getElementById("outsideWindow");
+  outsideWindow.src = getWindowPictureUrl(data);
+  movePhoto()
 }
 
 
 function updateWeather(data, units){
   updateGrid1(data, units)
   updateGrid2(data, units)
+  updateWindow(data)
   windowBlurRemove()
-  updateGrid3(data)
 }
 
 
@@ -150,7 +152,12 @@ function getWeatherIcon(data) {
     return "/src/assets/icons/smiles/stormy.png"
   } else if (data.weather[0].main == "Clear"){
     return "/src/assets/icons/smiles/sunnyDay.png"
-  }
+  }else if (data.weather[0].main == "Mist"){
+    return "/src/assets/icons/smiles/umbrellaRain.png"
+  } else if (data.weather[0].main == "Fog" || 
+  data.weather[0].main == "Smoke" ){
+    return "/src/assets/icons/smiles/cloudy.png"
+  } 
 }
 
 
@@ -181,11 +188,31 @@ function cityNameInformation(data){
 
 
 function windowBlurRemove (){
+  const grid = document.getElementById("grid1")
   const image = document.getElementById("outsideWindow")
   image.classList.remove("blur")
+  grid.classList.remove("blur")
+  
+
 }
 
+function movePhoto (){
+  const outsideWindow = document.getElementById("outsideWindow");
+  if (outsideWindow.naturalHeight > 490){
+    outsideWindow.style.left = "120px";
+    outsideWindow.style.top = "200px";
+  } else {
+    outsideWindow.style.removeProperty("left");
+    outsideWindow.style.removeProperty("top");
+}
+}
 
+function windowResize(){
+  const windowFrame = document.getElementById("windowFrameImg")
+  windowFrame.height
+  windowFrame.width
+
+}
 
 
 

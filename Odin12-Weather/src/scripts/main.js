@@ -10,8 +10,7 @@ import updateWeather from "./domScripts"
 
 const submitBtn = document.getElementById("submitBtn")
 const cityInput = document.getElementById("cityInput")
-
-cityInput.value = "Denver"
+cityInput.value = randoCity()
 
 search()
 
@@ -40,3 +39,42 @@ function unitsToggle(){
   }
 }
 
+
+const randomCity = document.getElementById("randomButton")
+randomCity.addEventListener("click", () => {randoCity(); search()} )
+function randoCity(){
+  const cities = [
+    "London",
+    "New York",
+    "Tokyo",
+    "Beijing",
+    "Kinshasa",
+    "Mexico City",
+    "Denver",
+    "Cairo",
+    "Delhi",
+    "Shanghai",
+    "Sao Paulo",
+    "Mumbai",
+    "Dhaka",
+    "Karachi",
+    "Chongqing",
+    "Istanbul",
+    "Manila",
+    "Lagos",
+    "Rio de Janeiro",
+    "Los Angeles",
+    "Moscow",
+    "Lima",
+    "Bangkok",
+    "Ho Chi Minh City",
+    "Santiago", 
+    "Toronto",
+    "Sydney"
+  ]
+  
+  const index = Math.round((cities.length-1)*Math.random())
+  console.log(cities[index])
+  cityInput.value = cities[index]
+    return cities[index]
+  }

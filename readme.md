@@ -34,3 +34,12 @@ Hazy City Photo by Alex Gindin on Unsplash
 Smokey Fireman Photo by Brett Sayles on Pexals
 Sunflower Clear Sky Photo by K Zoltan on Pexals
 Snowy cabin in lake - Photo by Federico Bottos on Unsplash
+
+
+Lightening in Field Photo by Eugene Triguba on Unsplash 
+
+Rain through Window Photo by Gil Ribeiro on Unsplash
+Snowy Landscape Photo by Michael Hacker on Unsplash
+
+Cloudy / Smokey City Photo by Aleksandar Pasaric on Pexals
+Smoke Photo by Kseniya Budko: https://www.pexels.com/photo/photo-of-white-smoke-9025591/
