@@ -42,8 +42,6 @@ unitBtn.addEventListener("click", () => {
 
 
 
-search()
-
 
 
 
@@ -108,3 +106,8 @@ function randoCity(){
   cityInput.value = cities[index]
     return cities[index]
   }
+
+
+
+  // The Entry POINT
+search()

@@ -143,10 +143,7 @@ function unitLetter(units){
 }
 
 function updateGrid1 (data, units){
-  // !const currentDate = document.getElementById("currentDate")
   const date = new Date(data.dt*1000)
-  // !currentDate.textContent = date.toDateString()
-
   const currentTemp = document.getElementById("currentTemp")
   const hiLo = document.getElementById("hiLo")
   hiLo.textContent = `${Math.round(data.main.temp_max)+ unitLetter(units)} / ${Math.round(data.main.temp_min)+ unitLetter(units)}`
@@ -163,9 +160,6 @@ function updateGrid2 (data){
   
 
 
-
-  // const weatherIcon = document.getElementById("weatherIcon");
-  // weatherIcon.src = getWeatherIcon(data);
 
   const weatherDescription = document.getElementById("weatherDescription");
   let description = data.weather[0].description
@@ -195,37 +189,6 @@ function getWindowPictureUrl(data){
   console.log("weatherPicture ", data.weather[0].main)
   return weatherPic.source
 }
-
-
-// can I shorten this down with find index sort of thing?   Not if statements...
-// function getWeatherIcon(data) {
-//   if (data.wind.speed > 20){
-//     return "/src/assets/icons/windyDay.png"
-//   } else if (data.weather[0].main == "Clouds"){
-//       if (data.weather[0].id == 804){
-//       return "/src/assets/icons/smiles/cloudy.png"
-//     } else {
-//       return "/src/assets/icons/smiles/partlycloudy.png"
-//     }
-//   } else if (data.weather[0].main == "Snow"){
-//     return "/src/assets/icons/smiles/snowman.png"
-//   } else if (data.weather[0].main == "Rain"){
-//     return "/src/assets/icons/smiles/umbrellaRain.png"
-//   } else if (data.weather[0].main == "Drizzle"){
-//     return "/src/assets/icons/smiles/umbrellaRainClosed.png"
-//   } else if (data.weather[0].main == "Thunderstorm"){
-//     return "/src/assets/icons/smiles/stormy.png"
-//   } else if (data.weather[0].main == "Clear"){
-//     return "/src/assets/icons/smiles/sunnyDay.png"
-//   }else if (data.weather[0].main == "Mist"){
-//     return "/src/assets/icons/smiles/umbrellaRain.png"
-//   } else if (data.weather[0].main == "Fog" || 
-//   data.weather[0].main == "Smoke" ){
-//     return "/src/assets/icons/smiles/cloudy.png"
-//   } 
-// }
-
-
 
 function capitalize(string){
   let newString = "";
