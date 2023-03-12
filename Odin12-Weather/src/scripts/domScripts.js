@@ -1,4 +1,22 @@
 
+
+// All weather Types
+// Thunderstorm
+// Rain
+// Drizzle
+// Snow
+// Mist
+// Smoke
+// Haze
+// Fog
+// Sand
+// Dust
+// Ash
+// Squall
+// Tornado
+// Clear 1234
+// Clouds
+
 const weatherImages = [
   {
     source:"/src/assets/Photos/clearSky.jpg",
@@ -9,29 +27,38 @@ const weatherImages = [
     weatherType:"Fog",
   },
   {
-    source:"/src/assets/Photos/Foggy Lake.jpg",
+    source:"/src/assets/Photos/Fog Monster.jpg",
     weatherType:"Mist",
   },
   {
-    source:"/src/assets/Photos/foggyForestpath.jpg",
+    source:"/src/assets/Photos/drizzle.jpg",
     weatherType:"Drizzle",
   },
   {
-    source:"/src/assets/Photos/hazeyFog.jpg",
-    weatherType:"",
+    source:"/src/assets/Photos/foggy Lake.jpg",
+    weatherType:"Haze",
+  },  
+  {
+    source:"/src/assets/Photos/smokeyCity2.jpg",
+    weatherType:"Dust",
   },
   {
-    source:"/src/assets/Photos/kiteFly.jpg",
-    weatherType:"",
+    source:"/src/assets/Photos/tornado.jpg",
+    weatherType:"Tornado",
   },
   {
-    source:"/src/assets/Photos/lighteningField.jpg",
+    source:"/src/assets/Photos/redSmoke.jpg",
+    weatherType:"Ash",
+  },
+  {
+    source:"/src/assets/Photos/squall.jpg",
+    weatherType:"Squall",
+  },
+  {
+    source:"/src/assets/Photos/4bolt.jpg",
     weatherType:"Thunderstorm",
   },
-  {
-    source:"/src/assets/Photos/OvercastMtns.jpg",
-    weatherType:"",
-  },
+
   {
     source:"/src/assets/Photos/overcastMtns2Small.png",
     weatherType:"",
@@ -63,8 +90,46 @@ const weatherImages = [
 
 ]
 
+const photoBtn = document.getElementById("photoTest")
+photoBtn.addEventListener("click", ()=>photoScroll())
+let photoIndex = 0
+function photoScroll(){
+  photoIndex++
+  const outsideWindow = document.getElementById("outsideWindow")
+  if (photoIndex == weatherImages.length)
+    {photoIndex = 0}
+  outsideWindow.src = weatherImages[photoIndex].source
+  console.log(weatherImages[photoIndex].weatherType)
+
+}
 
 
+
+
+
+
+
+const windowFrames = [
+  "/src/assets/transparentWindowCrop.png",
+  "/src/assets/pexels-bogdan-krupin-12028390(1).png",
+  "/src/assets/mark-konig-__e2djIWSXk-unsplash_crop.png",
+  "/src/assets/jaredd-craig-hwru6PbAHgI-unsplash.png"
+]
+
+let index = 0
+
+function changeWindow(){
+  index++
+  const windowFrameImg = document.getElementById("windowFrameImg")
+  if (index == windowFrames.length)
+    {index = 0}
+  windowFrameImg.src = windowFrames[index]
+
+}
+
+const windowFrame = document.getElementById("settingsWindowBtn")
+
+windowFrame.addEventListener("click", () => changeWindow())
 
 
 
@@ -78,9 +143,9 @@ function unitLetter(units){
 }
 
 function updateGrid1 (data, units){
-  const currentDate = document.getElementById("currentDate")
+  // !const currentDate = document.getElementById("currentDate")
   const date = new Date(data.dt*1000)
-  currentDate.textContent = date.toDateString()
+  // !currentDate.textContent = date.toDateString()
 
   const currentTemp = document.getElementById("currentTemp")
   const hiLo = document.getElementById("hiLo")
@@ -99,8 +164,8 @@ function updateGrid2 (data){
 
 
 
-  const weatherIcon = document.getElementById("weatherIcon");
-  weatherIcon.src = getWeatherIcon(data);
+  // const weatherIcon = document.getElementById("weatherIcon");
+  // weatherIcon.src = getWeatherIcon(data);
 
   const weatherDescription = document.getElementById("weatherDescription");
   let description = data.weather[0].description
@@ -132,33 +197,33 @@ function getWindowPictureUrl(data){
 }
 
 
-
-function getWeatherIcon(data) {
-  if (data.wind.speed > 20){
-    return "/src/assets/icons/windyDay.png"
-  } else if (data.weather[0].main == "Clouds"){
-      if (data.weather[0].id == 804){
-      return "/src/assets/icons/smiles/cloudy.png"
-    } else {
-      return "/src/assets/icons/smiles/partlycloudy.png"
-    }
-  } else if (data.weather[0].main == "Snow"){
-    return "/src/assets/icons/smiles/snowman.png"
-  } else if (data.weather[0].main == "Rain"){
-    return "/src/assets/icons/smiles/umbrellaRain.png"
-  } else if (data.weather[0].main == "Drizzle"){
-    return "/src/assets/icons/smiles/umbrellaRainClosed.png"
-  } else if (data.weather[0].main == "Thunderstorm"){
-    return "/src/assets/icons/smiles/stormy.png"
-  } else if (data.weather[0].main == "Clear"){
-    return "/src/assets/icons/smiles/sunnyDay.png"
-  }else if (data.weather[0].main == "Mist"){
-    return "/src/assets/icons/smiles/umbrellaRain.png"
-  } else if (data.weather[0].main == "Fog" || 
-  data.weather[0].main == "Smoke" ){
-    return "/src/assets/icons/smiles/cloudy.png"
-  } 
-}
+// can I shorten this down with find index sort of thing?   Not if statements...
+// function getWeatherIcon(data) {
+//   if (data.wind.speed > 20){
+//     return "/src/assets/icons/windyDay.png"
+//   } else if (data.weather[0].main == "Clouds"){
+//       if (data.weather[0].id == 804){
+//       return "/src/assets/icons/smiles/cloudy.png"
+//     } else {
+//       return "/src/assets/icons/smiles/partlycloudy.png"
+//     }
+//   } else if (data.weather[0].main == "Snow"){
+//     return "/src/assets/icons/smiles/snowman.png"
+//   } else if (data.weather[0].main == "Rain"){
+//     return "/src/assets/icons/smiles/umbrellaRain.png"
+//   } else if (data.weather[0].main == "Drizzle"){
+//     return "/src/assets/icons/smiles/umbrellaRainClosed.png"
+//   } else if (data.weather[0].main == "Thunderstorm"){
+//     return "/src/assets/icons/smiles/stormy.png"
+//   } else if (data.weather[0].main == "Clear"){
+//     return "/src/assets/icons/smiles/sunnyDay.png"
+//   }else if (data.weather[0].main == "Mist"){
+//     return "/src/assets/icons/smiles/umbrellaRain.png"
+//   } else if (data.weather[0].main == "Fog" || 
+//   data.weather[0].main == "Smoke" ){
+//     return "/src/assets/icons/smiles/cloudy.png"
+//   } 
+// }
 
 
 
@@ -176,9 +241,9 @@ function capitalize(string){
 function cityNameInformation(data){
   let location;
   if (data.stateName){
-    location = `${data.cityName}, ${data.stateName},  ${data.sys.country}`
+    location = `${data.cityName}, ${data.country}`
   } else {
-    location = `${data.cityName}, ${data.stateName},  ${data.sys.country}`
+    location = `${data.cityName}, ${data.country}`
   }
   return location
 }
@@ -188,10 +253,10 @@ function cityNameInformation(data){
 
 
 function windowBlurRemove (){
-  const grid = document.getElementById("grid1")
+  // const grid = document.getElementById("grid1")
   const image = document.getElementById("outsideWindow")
   image.classList.remove("blur")
-  grid.classList.remove("blur")
+  // grid.classList.remove("blur")
   
 
 }

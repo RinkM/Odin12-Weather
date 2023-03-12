@@ -1,4 +1,4 @@
-import '/src/style.css'
+import '/src/style copy.css'
 import getWeatherData from "./apiScripts"
 import updateWeather from "./domScripts"
 
@@ -10,11 +10,46 @@ import updateWeather from "./domScripts"
 
 const submitBtn = document.getElementById("submitBtn")
 const cityInput = document.getElementById("cityInput")
+const unitBtn = document.getElementById("settingsUnitBtn")
+const cityBtn = document.getElementById("settingsCityBtn")
+const windowBtn = document.getElementById("settingsWindowBtn")
+
 cityInput.value = randoCity()
+
+
+cityBtn.addEventListener("click", () => cityBtnPress());
+
+
+function cityBtnPress(){
+  const windowForm = document.getElementById("windowForm")
+  windowForm.classList.toggle("hidden")
+}
+
+function closeCitySearch(){
+  const windowForm = document.getElementById("windowForm")
+  windowForm.classList.add("hidden")
+}
+
+
+
+windowBtn.addEventListener("click", () => search());
+
+
+submitBtn.addEventListener("click", () => search());
+  
+unitBtn.addEventListener("click", () => {
+  unitsToggle();})
+
+
 
 search()
 
+
+
+
 async function search(){
+  closeCitySearch()
+  
   const weatherData = await getWeatherData(unitBtn.value)
   if (weatherData){
     console.log(weatherData)
@@ -23,20 +58,15 @@ async function search(){
 }
 
 
-submitBtn.addEventListener("click", () => search());
-  
-unitBtn.addEventListener("click", () => {
-  unitsToggle();})
 
 function unitsToggle(){
-  const unitBtn = document.getElementById("unitBtn")
+  const unitBtn = document.getElementById("settingsUnitBtn")
   if (unitBtn.value == "Imperial"){
-    unitBtn.textContent = "Metric";
     unitBtn.value = "Metric";
   } else {
-    unitBtn.textContent = "Imperial";
     unitBtn.value = "Imperial";
   }
+  search()
 }
 
 
