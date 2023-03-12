@@ -19,27 +19,9 @@ Better form validation.
 make the starting city random.  Present a picture of that city in the weather pattern?   
 
 
-## Photo Credits 
-Window Photo by Nicolas Solerieu on Unsplash 
-Rainy City Photo by Matthew Henry on Unsplash
-Sunny field: Photo by Aaron Burden on Unsplash
-Kid kite : Image by Anja from Pixabay 
-Fog monster : Image by Stefan Keller on Pixabay 
-Cloudy Mountains : Photo by Karsten Würth on Unsplash
-Aspen cloudy mans : Photo by Nathan Anderson on Unsplash
-Lightening Thunderstorm Photo by Max LaRochelle on Unsplash
-Sandstorm Photo by Lucas Pereira Carlinion Pexals
-Hazy Deer Photo by Paul Earle on Unsplash
-Hazy City Photo by Alex Gindin on Unsplash
-Smokey Fireman Photo by Brett Sayles on Pexals
-Sunflower Clear Sky Photo by K Zoltan on Pexals
-Snowy cabin in lake - Photo by Federico Bottos on Unsplash
 
 
-Lightening in Field Photo by Eugene Triguba on Unsplash 
 
-Rain through Window Photo by Gil Ribeiro on Unsplash
-Snowy Landscape Photo by Michael Hacker on Unsplash
 
-Cloudy / Smokey City Photo by Aleksandar Pasaric on Pexals
-Smoke Photo by Kseniya Budko: https://www.pexels.com/photo/photo-of-white-smoke-9025591/
+
+
