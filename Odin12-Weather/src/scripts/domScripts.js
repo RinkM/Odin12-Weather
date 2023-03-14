@@ -19,79 +19,124 @@
 
 const weatherImages = [
   {
-    source:"/src/assets/Photos/clearSky.jpg",
+    source:"/public/images/WeatherPhotos/clearSky.jpg",
     weatherType:"Clear",
   },
   {
-    source:"/src/assets/Photos/Fog Monster.jpg",
+    source:"/public/images/WeatherPhotos/Fog Monster.jpg",
     weatherType:"Fog",
   },
   {
-    source:"/src/assets/Photos/Fog Monster.jpg",
+    source:"/public/images/WeatherPhotos/Fog Monster.jpg",
     weatherType:"Mist",
   },
   {
-    source:"/src/assets/Photos/drizzle.jpg",
+    source:"/public/images/WeatherPhotos/drizzle.jpg",
     weatherType:"Drizzle",
   },
   {
-    source:"/src/assets/Photos/foggy Lake.jpg",
+    source:"/public/images/WeatherPhotos/foggy Lake.jpg",
     weatherType:"Haze",
   },  
   {
-    source:"/src/assets/Photos/smokeyCity2.jpg",
+    source:"/public/images/WeatherPhotos/smokeyCity2.jpg",
     weatherType:"Dust",
   },
   {
-    source:"/src/assets/Photos/tornado.jpg",
+    source:"/public/images/WeatherPhotos/tornado.jpg",
     weatherType:"Tornado",
   },
   {
-    source:"/src/assets/Photos/redSmoke.jpg",
+    source:"/public/images/WeatherPhotos/redSmoke.jpg",
     weatherType:"Ash",
   },
   {
-    source:"/src/assets/Photos/squall.jpg",
+    source:"/public/images/WeatherPhotos/squall.jpg",
     weatherType:"Squall",
   },
   {
-    source:"/src/assets/Photos/4bolt.jpg",
+    source:"/public/images/WeatherPhotos/4bolt.jpg",
     weatherType:"Thunderstorm",
   },
 
   {
-    source:"/src/assets/Photos/overcastMtns2Small.png",
+    source:"/public/images/WeatherPhotos/overcastMtns2Small.png",
     weatherType:"",
   },
   {
-    source:"/src/assets/Photos/partlyCloudySmall.png",
+    source:"/public/images/WeatherPhotos/partlyCloudySmall.png",
     weatherType:"Clouds",
   },
   {
-    source:"/src/assets/Photos/sandstorm.jpg",
+    source:"/public/images/WeatherPhotos/sandstorm.jpg",
     weatherType:"Sand",
   },
   {
-    source:"/src/assets/Photos/snowLandscape.jpg",
+    source:"/public/images/WeatherPhotos/snowLandscape.jpg",
     weatherType:"Snow",
   },
   {
-    source:"/src/assets/Photos/windyTree.jpg",
+    source:"/public/images/WeatherPhotos/windyTree.jpg",
     weatherType:"Wind",
   },
   {
-    source:"/src/assets/Photos/cityRain.jpg",
+    source:"/public/images/WeatherPhotos/cityRain.jpg",
     weatherType:"Rain",
   },
   {
-    source:"/src/assets/Photos/smokeyCity.jpg",
+    source:"/public/images/WeatherPhotos/smokeyCity.jpg",
     weatherType:"Smoke",
   },
 
 ]
 
-const photoBtn = document.getElementById("photoTest")
-photoBtn.addEventListener("click", ()=>photoScroll())
+
+
+
+function preloadImages(urls, allImagesLoadedCallback){
+  var loadedCounter = 0;
+var toBeLoadedNumber = urls.length;
+urls.forEach(function(url){
+  preloadImage(url, function(){
+      loadedCounter++;
+          console.log('Number of loaded images: ' + loadedCounter);
+    if(loadedCounter == toBeLoadedNumber){
+      allImagesLoadedCallback();
+    }
+  });
+});
+function preloadImage(url, anImageLoadedCallback){
+    var img = new Image();
+    img.onload = anImageLoadedCallback;
+    img.src = url;
+}
+}
+
+
+
+
+
+
+
+
+
+
+var images = [];
+function preload() {
+    for (var i = 0; i < arguments.length; i++) {
+        images[i] = new Image();
+        images[i].src = preload.arguments[i];
+    }
+}
+
+function preload_image(im_url) {
+  let img = new Image();
+  img.src = im_url;
+
+}
+
+// const photoBtn = document.getElementById("photoTest")
+// photoBtn.addEventListener("click", ()=>photoScroll())
 let photoIndex = 0
 function photoScroll(){
   photoIndex++
@@ -103,18 +148,21 @@ function photoScroll(){
 
 }
 
-
-
-
-
-
-
 const windowFrames = [
-  "/src/assets/transparentWindowCrop.png",
-  "/src/assets/pexels-bogdan-krupin-12028390(1).png",
-  "/src/assets/mark-konig-__e2djIWSXk-unsplash_crop.png",
-  "/src/assets/jaredd-craig-hwru6PbAHgI-unsplash.png"
+  "/public/images/WindowFrames/transparentWindowCrop.png",
+  "/public/images/WindowFrames/pexels-bogdan-krupin-12028390(1).png",
+  "/public/images/WindowFrames/mark-konig-__e2djIWSXk-unsplash_crop.png",
+  "/public/images/WindowFrames/jaredd-craig-hwru6PbAHgI-unsplash.png",
+  // "/public/images/WindowFrames/victoriaWindow.png",
+  // "/public/images/WindowFrames/yellowBars.png"
 ]
+
+
+// Let's call it:
+preloadImages([windowFrames], function(){
+  console.log('All images were loaded');
+});
+
 
 let index = 0
 
