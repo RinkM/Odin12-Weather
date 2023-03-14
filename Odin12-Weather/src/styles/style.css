@@ -5,13 +5,15 @@
 
 body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #292a25;
   transition: all .5s ease;
+  
 }
 
 #windowContainer{
   margin: -8px;
   background: #292a25;
-  height: 100vh;
+  height: fit-content;
   padding: 5px 0px
 }
 

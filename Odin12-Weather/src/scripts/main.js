@@ -1,4 +1,4 @@
-import '/src/style copy.css'
+import '/src/styles/style.css'
 import getWeatherData from "./apiScripts"
 import updateWeather from "./domScripts"
 

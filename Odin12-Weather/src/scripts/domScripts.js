@@ -19,72 +19,72 @@
 
 const weatherImages = [
   {
-    source:"/public/images/WeatherPhotos/clearSky.jpg",
+    source:"/src/images/WeatherPhotos/clearSky.jpg",
     weatherType:"Clear",
   },
   {
-    source:"/public/images/WeatherPhotos/Fog Monster.jpg",
+    source:"/src/images/WeatherPhotos/Fog Monster.jpg",
     weatherType:"Fog",
   },
   {
-    source:"/public/images/WeatherPhotos/Fog Monster.jpg",
+    source:"/src/images/WeatherPhotos/Fog Monster.jpg",
     weatherType:"Mist",
   },
   {
-    source:"/public/images/WeatherPhotos/drizzle.jpg",
+    source:"/src/images/WeatherPhotos/drizzle.jpg",
     weatherType:"Drizzle",
   },
   {
-    source:"/public/images/WeatherPhotos/foggy Lake.jpg",
+    source:"/src/images/WeatherPhotos/foggy Lake.jpg",
     weatherType:"Haze",
   },  
   {
-    source:"/public/images/WeatherPhotos/smokeyCity2.jpg",
+    source:"/src/images/WeatherPhotos/smokeyCity2.jpg",
     weatherType:"Dust",
   },
   {
-    source:"/public/images/WeatherPhotos/tornado.jpg",
+    source:"/src/images/WeatherPhotos/tornado.jpg",
     weatherType:"Tornado",
   },
   {
-    source:"/public/images/WeatherPhotos/redSmoke.jpg",
+    source:"/src/images/WeatherPhotos/redSmoke.jpg",
     weatherType:"Ash",
   },
   {
-    source:"/public/images/WeatherPhotos/squall.jpg",
+    source:"/src/images/WeatherPhotos/squall.jpg",
     weatherType:"Squall",
   },
   {
-    source:"/public/images/WeatherPhotos/4bolt.jpg",
+    source:"/src/images/WeatherPhotos/4bolt.jpg",
     weatherType:"Thunderstorm",
   },
 
   {
-    source:"/public/images/WeatherPhotos/overcastMtns2Small.png",
+    source:"/src/images/WeatherPhotos/overcastMtns2Small.png",
     weatherType:"",
   },
   {
-    source:"/public/images/WeatherPhotos/partlyCloudySmall.png",
+    source:"/src/images/WeatherPhotos/partlyCloudySmall.png",
     weatherType:"Clouds",
   },
   {
-    source:"/public/images/WeatherPhotos/sandstorm.jpg",
+    source:"/src/images/WeatherPhotos/sandstorm.jpg",
     weatherType:"Sand",
   },
   {
-    source:"/public/images/WeatherPhotos/snowLandscape.jpg",
+    source:"/src/images/WeatherPhotos/snowLandscape.jpg",
     weatherType:"Snow",
   },
   {
-    source:"/public/images/WeatherPhotos/windyTree.jpg",
+    source:"/src/images/WeatherPhotos/windyTree.jpg",
     weatherType:"Wind",
   },
   {
-    source:"/public/images/WeatherPhotos/cityRain.jpg",
+    source:"/src/images/WeatherPhotos/cityRain.jpg",
     weatherType:"Rain",
   },
   {
-    source:"/public/images/WeatherPhotos/smokeyCity.jpg",
+    source:"/src/images/WeatherPhotos/smokeyCity.jpg",
     weatherType:"Smoke",
   },
 
@@ -149,17 +149,17 @@ function photoScroll(){
 }
 
 const windowFrames = [
-  "/public/images/WindowFrames/transparentWindowCrop.png",
-  "/public/images/WindowFrames/pexels-bogdan-krupin-12028390(1).png",
-  "/public/images/WindowFrames/mark-konig-__e2djIWSXk-unsplash_crop.png",
-  "/public/images/WindowFrames/jaredd-craig-hwru6PbAHgI-unsplash.png",
-  // "/public/images/WindowFrames/victoriaWindow.png",
-  // "/public/images/WindowFrames/yellowBars.png"
+  "/src/images/WindowFrames/transparentWindowCrop.png",
+  "/src/images/WindowFrames/pexels-bogdan-krupin-12028390(1).png",
+  "/src/images/WindowFrames/mark-konig-__e2djIWSXk-unsplash_crop.png",
+  "/src/images/WindowFrames/jaredd-craig-hwru6PbAHgI-unsplash.png",
+  // "/src/images/WindowFrames/victoriaWindow.png",
+  // "/src/images/WindowFrames/yellowBars.png"
 ]
 
 
 // Let's call it:
-preloadImages([windowFrames], function(){
+preloadImages(windowFrames, function(){
   console.log('All images were loaded');
 });
 
